@@ -4,7 +4,7 @@ package gooseGame.cell;
 * Class for the goose cell.
 * When a player jumps on a goose cell with a dice throw n, he/she's send n cells further.
 *
-* @author Maron Tommasi - Alexandre Moevi
+* @authors Marion Tommasi - Alexandre Moevi
 *
 */
 public class GooseCell extends AbstractCell {
