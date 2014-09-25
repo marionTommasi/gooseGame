@@ -4,7 +4,6 @@ import gooseGame.Player;
 
 /**
  * Class for the normal cells.
- * Note : the special cells are considered as normal cells with just few peculiarities.
  * 
  * @author marion
  *
