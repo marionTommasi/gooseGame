@@ -70,11 +70,13 @@ public abstract class Board {
 	 * @param p2
 	 */
 	protected void swap(Player p1, Player p2){
+		if(!(p1.equals(p2))) {
 		Cell tmp = p1.getCell();
 		p1.setCell(p2.getCell());
 		p1.getCell().welcome(p1);
 		p2.setCell(tmp);
 		tmp.welcome(p2);
+		}
 	}
 	
 	/**
