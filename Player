@@ -1,0 +1,25 @@
+package gooseGame;
+
+
+/**
+ * Class for the players. A player and his/her goose are assimilated.
+ * 
+ * @author marion
+ *
+ */
+public class Player {
+
+	private Cell cell;
+	
+	public Player(){
+		this.cell = null;
+	}
+	
+	public Cell getCell(){
+		return this.cell;
+	}
+	
+	public void setCell(Cell cell){
+		this.cell = cell;
+	}
+}
