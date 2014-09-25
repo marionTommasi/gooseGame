@@ -1,4 +1,4 @@
-package gooseGame;
+package gooseGame.cell;
 
 /**
  * Class for the teleport cell.
@@ -7,11 +7,11 @@ package gooseGame;
  * @author marion
  *
  */
-public class Teleport extends Normal {
+public class TeleportCell extends AbstractCell {
 
 	private int destination;
 	
-	public Teleport(int i, int dest){
+	public TeleportCell(int i, int dest){
 		super(i);
 		this.destination = dest;
 	}
