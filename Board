@@ -30,12 +30,15 @@ public abstract class Board {
 			int j = a.handleMove(diceThrow);
 			this.normalize(j);
 			a = this.getCell(i);
+			System.out.println(p.getName()+" is in cell "+c.getIndex()+", "+p.getName()+" throws "+diceThrow+" and reaches cell "+a.getIndex());
 			if (a.isBusy()){
 				swap(a.getPlayer(), p);
 			}
 			else {
 				this.moveTo(p, a);
 			}
+		} else {
+		System.out.println(p.getName()+" is in cell "+c.getIndex()+", "+p.getName()+" cannot play.");
 		}
 	}
 	
@@ -76,6 +79,7 @@ public abstract class Board {
 		p1.getCell().welcome(p1);
 		p2.setCell(tmp);
 		tmp.welcome(p2);
+		System.out.println(p1.getName()+" and "+p2.getName()+" have swapped cells.");
 		}
 	}
 	
