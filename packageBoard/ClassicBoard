@@ -1,0 +1,49 @@
+package gooseGame.board;
+
+import gooseGame.cell.GooseCell;
+import gooseGame.cell.NormalCell;
+import gooseGame.cell.TeleportCell;
+import gooseGame.cell.TrapCell;
+import gooseGame.cell.WaitCell;
+
+
+/**
+ * Class for the classic board of the Goose game.
+ * 
+ * @author Marion Tommasi - Alexandre Moevi
+ *
+ */
+public class ClassicBoard extends Board {
+
+	public ClassicBoard() {
+		super(63);
+	}
+
+	@Override
+	protected void init() {
+		for (int i = 1; i <= 63; i++) {
+			if (i==9 | i==18 | i == 27 || i==36 || i==45 || i==54){
+				cells[i] = new GooseCell(i);
+			}
+			else if (i==31 | i==52){
+				cells[i] = new TrapCell(i);
+			}
+			else if (i==19){
+				cells[i] = new WaitCell(i, 2);
+			}
+			else if (i==6){
+				cells[i] = new TeleportCell(6, 12);
+			}
+			else if (i==42){
+				cells[i] = new TeleportCell(42, 30);
+			}
+			else if (i==58){
+				cells[i] = new TeleportCell(58, 1);
+			}
+			cells[i] = new NormalCell(i);
+		}
+
+	}
+
+}
+
