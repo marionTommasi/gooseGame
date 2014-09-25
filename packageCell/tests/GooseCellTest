@@ -1,0 +1,17 @@
+package gooseGame.cell;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class GooseCellTest {
+
+	@Test
+	public void testHandleMove() {
+		Goose goose = new Goose(54);
+		assertEquals(59, goose.handleMove(5));
+		assertEquals(60, goose.handleMove(6));
+		assertEquals(57, goose.handleMove(3));
+	}
+
+}
