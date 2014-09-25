@@ -1,50 +1,9 @@
-package cell;
+package gooseGame.cell;
 
-import gooseGame.Player;
+public class NormalCell extends AbstractCell {
 
-/**
- * Class for the normal cells.
- * 
- * @author marion
- *
- */
-public class Normal implements Cell {
-	
-	private int index;
-	private Player player;
-	
-	public Normal(int i){
-		this.index = i;
-		this.player = null;
-	}
-	
-	public boolean canBeLeftNow() {
-		return true;
-	}
-
-	public boolean isRetaining(){
-		return false;
-	}
-
-	public int getIndex(){
-		return this.index;
-	}
-
-	public int handleMove(int diceThrow){
-		return (this.index + diceThrow);
-	}
-
-	public boolean isBusy(){
-		return (this.player==null);
-	}
-
-	public Player getPlayer(){
-		return this.player;
-	}
-
-	public void welcome(Player player){
-		this.player = player;
-		player.setCell(this);
+	public NormalCell(int i) {
+		super(i);
 	}
 
 }
