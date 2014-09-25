@@ -1,17 +1,17 @@
-package gooseGame;
+package gooseGame.cell;
 
 /**
- * Class for the goose cell.
- * When a player jumps on a goose cell with a dice throw n, he/she's send n cells further.
- *  
- * @author marion
- *
- */
-public class Goose extends Normal {
+* Class for the goose cell.
+* When a player jumps on a goose cell with a dice throw n, he/she's send n cells further.
+*
+* @author Maron Tommasi - Alexandre Moevi
+*
+*/
+public class GooseCell extends AbstractCell {
 	
 	private int index;
 	
-	public Goose(int i){
+	public GooseCell(int i){
 		super(i);
 	}
 
@@ -26,4 +26,4 @@ public class Goose extends Normal {
 	}
 
 }
-              
+
