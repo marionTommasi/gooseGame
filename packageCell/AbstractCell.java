@@ -1,7 +1,11 @@
 package gooseGame.cell;
 
 import gooseGame.Player;
-
+/**
+ * Class to construct the cells of the board.
+ * 
+ * authors Marion Tommasi - Alexandre Moevi
+ * /
 public abstract class AbstractCell implements Cell {
 
 	private int index;
