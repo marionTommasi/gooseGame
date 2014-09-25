@@ -1,8 +1,8 @@
 package jeudeloie.boards;
 
 import jeudeloie.Board;
-import jeudeloie.cells.CellGoose;
-import jeudeloie.cells.CellNormal;
+import jeudeloie.cells.GooseCell;
+import jeudeloie.cells.NormalCell;
 
 public class BoardGoose extends Board {
 
@@ -12,9 +12,9 @@ public class BoardGoose extends Board {
 
 	public void init() {
 		for (int i = 1 ; i < 69 ; i++) {
-			this.board[i] = new CellGoose(i);
+			this.board[i] = new GooseCell(i);
 		}
-		this.board[69] = new CellNormal(69);
+		this.board[69] = new NormalCell(69);
 	}
 
 }
