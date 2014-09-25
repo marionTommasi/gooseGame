@@ -1,15 +1,15 @@
-package gooseGame;
+package gooseGame.cell;
 
 /**
- * Class for the trap cell.
- * A player who jumps on a trap cell cannot move further until another player take his/her place.
- * 
- * @author marion
- *
- */
-public class Trap extends Normal {
+* Class for the trap cell.
+* A player who jumps on a trap cell cannot move further until another player take his/her place.
+*
+* @author marion
+*
+*/
+public class TrapCell extends AbstractCell {
 
-	public Trap(int i){
+	public TrapCell(int i){
 		super(i);
 	}
 
@@ -28,3 +28,5 @@ public class Trap extends Normal {
 	}
 
 }
+
+
