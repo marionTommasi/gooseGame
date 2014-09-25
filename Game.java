@@ -14,7 +14,7 @@ public class Game {
 	}
 	
 	public Player nextPlayer(){
-		return this.thePlayers[(nextPlayer+1) % (this.thePlayers.length)];
+		return this.thePlayers[(nextPlayer++) % (this.thePlayers.length)];
 	}
 	
 	public void play(){
@@ -38,8 +38,8 @@ public class Game {
 		return isFinished;
 	}
 	
-	public int diceThrow(){
-		return 0;
+	public int rollDice() {
+		return (new Random()).nextInt(6) + 1;
 	}
 
 	public Player getWinner(){
@@ -49,4 +49,27 @@ public class Game {
 		return null;
 	}
 	
+	public void printWinner(Player player) {
+		if (player != null) {
+			System.out.println("And the winner is... " + player.getName());
+		} else {
+			System.out.println("All players are stuck...GAME OVER");
+		}
+	}
+
+	public static void main(String[] args) {		
+		Player[] array = new Player[args.length - 1];
+		Board theBoard;
+		for (int i = 1 ; i < args.length; i++) {
+			array[i - 1] = new Player(args[i]);
+		}
+		switch(args[0]) {
+		case "Goose" : theBoard = new BoardGoose(); break;
+		case "Trap" : theBoard = new BoardTrap(); break;
+		default : theBoard = new BoardClassic();
+		}
+		Game test = new Game(theBoard, array);
+		test.play();
+		test.printWinner(test.getWinner());
+	}
 }
