@@ -16,7 +16,7 @@ public class GooseCell extends AbstractCell {
 	}
 
 	/**
-	 * <code>handleMove(diceThrow)</code> send the player <code>diceThrow</code> cells further.
+	 * <code>handleMove(diceThrow)</code> sends the player <code>diceThrow</code> cells further.
 	 * @param diceThrow the number obtained when throwing the dice
 	 * @return the index of the cell where the player is sent
 	 */
