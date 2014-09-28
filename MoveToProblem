@@ -1,0 +1,22 @@
+	public void welcome(Player player) {
+		this.player = player;		
+	}
+	
+	
+	
+		protected void swap(Player a, Player b) {
+		  if(!(a.equals(b))) {
+		    Cell tmp = a.getCell();
+		    a.setCell(b.getCell());
+		    b.getCell().welcome(a);
+		    b.setCell(tmp);
+		    tmp.welcome(b);
+		    System.out.println(a.getName()+" and "+b.getName()+" have swapped cells ");
+		  }
+	}
+	
+	public void moveToCell(Player player, Cell end) {
+		player.getCell().welcome(null);
+		player.setCell(end);
+		end.welcome(player);
+	}
