@@ -1,11 +1,13 @@
 package gooseGame.cell;
 
+import gooseGame.Cell;
 import gooseGame.Player;
+
 /**
- * Class to construct the cells of the board.
- * 
- * authors Marion Tommasi - Alexandre Moevi
- * /
+* Class to construct the cells of the board.
+*
+* @author Marion Tommasi - Alexandre Moevi
+*/
 public abstract class AbstractCell implements Cell {
 
 	private int index;
@@ -38,7 +40,7 @@ public abstract class AbstractCell implements Cell {
 
 	@Override
 	public boolean isBusy() {
-		return (this.player==null);
+		return (this.player!=null);
 	}
 
 	@Override
@@ -49,7 +51,6 @@ public abstract class AbstractCell implements Cell {
 	@Override
 	public void welcome(Player player) {
 		this.player = player;
-		player.setCell(this);
 	}
 
 }
