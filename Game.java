@@ -1,8 +1,6 @@
 package gooseGame;
 
-import gooseGame.board.ClassicBoard;
-import gooseGame.board.GooseBoard;
-
+import gooseGame.board.*;
 import java.util.Random;
 
 /**
@@ -26,6 +24,9 @@ public class Game {
 		this.board = board;
 		this.thePlayers = players;
 		this.nextPlayer = 0;
+		for (Player p : this.thePlayers){
+			p.setCell(board.getCell(0));
+		}
 	}
 
 	/**
@@ -57,11 +58,12 @@ public class Game {
 		boolean isFinished = true;
 		if (!(this.board.lastCellReached())) {
 			for (Player p : this.thePlayers) {
-				if (!(p.getCell().isRetaining()))
+				if (!(p.getCell().isRetaining())) {
 					isFinished = false;
+				}
 			}
 		} else {
-			isFinished = false;
+			isFinished = true;
 		}
 		return isFinished;
 	}
@@ -89,7 +91,9 @@ public class Game {
 
 	/**
 	 * Print a message to indicate the eventual winner.
-	 * @param player the result of <code>getWinner</code>
+	 * 
+	 * @param player
+	 *            the result of <code>getWinner</code>
 	 */
 	public void printWinner(Player player) {
 		if (player != null) {
@@ -109,7 +113,9 @@ public class Game {
 		case "Goose":
 			theBoard = new GooseBoard();
 			break;
-		/* case "Trap" : theBoard = new TrapBoard(); break; */
+		case "Trap":
+			theBoard = new TrapBoard();
+			break;
 		default:
 			theBoard = new ClassicBoard();
 		}
