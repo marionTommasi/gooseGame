@@ -17,7 +17,7 @@ public class TeleportCell extends AbstractCell {
 	}
 
 	/**
-	 * Send the player to the cell number <code>destination</code>
+	 * Sends the player to the cell number <code>destination</code>
 	 */
 	public int handleMove(int diceThrow){
 		return (this.destination);
