@@ -7,12 +7,22 @@ public abstract class Board {
 	protected int size;
 	protected Cell[] cells;
 
+
+	/**
+	 * Superclass constructor.
+	 * 
+	 * @param size the number of cells on the board (starting cell excluded)
+	 */
 	public Board(int size) {
 		this.size = size;
 		this.cells = new Cell[size + 1];
 		this.cells[0] = new StartCell();
 	}
 
+
+	/**
+	 * Initiates the board, i. e. creates the needed number of cells for the board. 
+	 */
 	protected abstract void init();
 
 	/**
