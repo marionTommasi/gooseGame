@@ -7,22 +7,13 @@ public abstract class Board {
 	protected int size;
 	protected Cell[] cells;
 
-
-	/**
-	 * Superclass constructor.
-	 * 
-	 * @param size the number of cells on the board (starting cell excluded)
-	 */
 	public Board(int size) {
 		this.size = size;
 		this.cells = new Cell[size + 1];
 		this.cells[0] = new StartCell();
+		this.init();
 	}
 
-
-	/**
-	 * Initiates the board, i. e. creates the needed number of cells for the board. 
-	 */
 	protected abstract void init();
 
 	/**
@@ -37,10 +28,10 @@ public abstract class Board {
 		Cell c = p.getCell();
 		if (c.canBeLeftNow()) {
 			int i = c.getIndex() + diceThrow;
-			this.normalize(i);
+			i = this.normalize(i);
 			Cell a = this.getCell(i);
 			int j = a.handleMove(diceThrow);
-			this.normalize(j);
+			j = this.normalize(j);
 			a = this.getCell(i);
 			System.out.println(p.getName() + " is in cell " + c.getIndex()
 					+ ", " + p.getName() + " throws " + diceThrow
@@ -78,7 +69,7 @@ public abstract class Board {
 	 * @return the cell corresponding to the number <code>i</code>
 	 */
 	protected Cell getCell(int i) {
-		return cells[i];
+		return this.cells[i];
 	}
 
 	/**
@@ -92,9 +83,10 @@ public abstract class Board {
 		if (!(p1.equals(p2))) {
 			Cell tmp = p1.getCell();
 			p1.setCell(p2.getCell());
-			p1.getCell().welcome(p1);
+			p2.getCell().welcome(p1);
 			p2.setCell(tmp);
 			tmp.welcome(p2);
+			System.out.println(p1.getName()+" and "+p2.getName()+" have swapped cells ");
 		}
 	}
 
@@ -122,7 +114,7 @@ public abstract class Board {
 	 * @return true if the last cell is reached, false otherwise
 	 */
 	public boolean lastCellReached() {
-		return getLastCell().isBusy();
+		return this.getLastCell().isBusy();
 	}
 
 }
