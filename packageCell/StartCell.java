@@ -1,47 +1,54 @@
-package gooseGame;
+package gooseGame.cell;
 
-public class Start implements Cell {
+import gooseGame.Cell;
+import gooseGame.Player;
 
-	@Override
+/**
+ * Class for the start cell. 
+ * There can only be one start cell on the board, and it is the first cell (index = 0). 
+ * It's the only cell where there can be more than one player.
+ * 
+ * @author Marion Tommasi - Alexandre Moevi
+ *
+ */
+public class StartCell implements Cell {
+
+	private int index = 0;
+
+	/**
+	 * We don't have to know the players who are on the start cell.
+	 */
+	public Player getPlayer() throws IllegalStateException {
+		throw new IllegalStateException();
+	}
+
 	public boolean canBeLeftNow() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
-	@Override
 	public boolean isRetaining() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
 	public int getIndex() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.index;
 	}
 
-	@Override
 	public int handleMove(int diceThrow) {
-		// TODO Auto-generated method stub
-		return 0;
+		return diceThrow;
 	}
 
-	@Override
+	/**
+	 * Even though there are players on the start cell, it's never busy (the
+	 * players can always return to the start cell, without swapping with the
+	 * players already there).
+	 */
 	public boolean isBusy() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
-	public Player getPlayer() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public void welcome(Player player) {
-		// TODO Auto-generated method stub
-
+		return;
 	}
 
 }
