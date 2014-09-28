@@ -31,6 +31,7 @@ public class BoardTest {
 		
 		p1.setCell(cell1);
 		p2.setCell(cell2);
+		p2.getCell();
 		board.swap(p1, p2);
 		assertEquals(cell1, p2.getCell());
 		assertEquals(cell2, p1.getCell());
@@ -59,8 +60,9 @@ public class BoardTest {
 
 	@Test
 	public void testLastCellReached() {
+		p1.setCell(board.getCell(24));
 		assertFalse(board.lastCellReached());
-		p1.setCell(board.getLastCell());
+		board.moveTo(p1, board.getLastCell());
 		assertTrue(board.lastCellReached());
 	}
 
