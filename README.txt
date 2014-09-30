@@ -13,4 +13,7 @@ Un exemple valable serait "java -jar Classic Yves Jean-Christophe Damien"
 
 Commentaires
 
-La programmation a posé peu de problèmes
+Dans notre version du jeu de l'oie, comme décidé en td et contrairement aux règles du jeu de l'oie,
+les effets des cases spéciales ne s'enchaînent pas.
+
+La programmation n'a pas posé de problème particulier.
