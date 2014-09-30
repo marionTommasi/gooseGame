@@ -4,6 +4,7 @@ import gooseGame.board.*;
 import java.util.Random;
 
 /**
+ * The main class of the Goose game.
  * 
  * @author Marion Tommasi - Alexandre Moevi
  *
@@ -15,7 +16,7 @@ public class Game {
 	private int nextPlayer;
 
 	/**
-	 * Creates a new game.
+	 * Constructor of the class Game.
 	 * 
 	 * @param board
 	 * @param players
@@ -24,12 +25,13 @@ public class Game {
 		this.board = board;
 		this.thePlayers = players;
 		this.nextPlayer = 0;
-		for (Player p : this.thePlayers){
+		for (Player p : this.thePlayers) {
 			p.setCell(board.getCell(0));
 		}
 	}
 
 	/**
+	 * Return the player one after another. 
 	 * 
 	 * @return the next player
 	 */
@@ -69,7 +71,7 @@ public class Game {
 	}
 
 	/**
-	 * 
+	 * Simulates the action of rolling a dice.
 	 * @return a random number between 1 and 6.
 	 */
 	public int rollDice() {
@@ -103,7 +105,26 @@ public class Game {
 		}
 	}
 
+	private static void usage() {
+		System.out
+				.println("The first argument must be one of these three type of board : Classic, Goose or Trap.");
+		System.out
+				.println("The following arguments are the names of the players.");
+	}
+
+	/**
+	 * The main function create and play a game with the type of board and the
+	 * player(s) indicate on the command line.
+	 * The first argument must be one of these three type of board : Classic, Goose or Trap.
+	 * The following arguments are the names of the players.
+	 * 
+	 * @param args the arguments on the command line : the type of board and the player(s)
+	 */
 	public static void main(String[] args) {
+		if (args.length < 2) {
+			usage();
+			return;
+		}
 		Player[] array = new Player[args.length - 1];
 		Board theBoard;
 		for (int i = 1; i < args.length; i++) {
@@ -116,8 +137,12 @@ public class Game {
 		case "Trap":
 			theBoard = new TrapBoard();
 			break;
-		default:
+		case "Classic":
 			theBoard = new ClassicBoard();
+			break;
+		default:
+			usage();
+			return;
 		}
 		Game test = new Game(theBoard, array);
 		test.play();
